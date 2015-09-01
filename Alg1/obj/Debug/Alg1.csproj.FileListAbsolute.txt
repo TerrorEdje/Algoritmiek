@@ -1,0 +1,5 @@
+C:\Users\Sven\Documents\GitHub\Design-Patterns\Alg1\Alg1\bin\Debug\Alg1.exe.config
+C:\Users\Sven\Documents\GitHub\Design-Patterns\Alg1\Alg1\bin\Debug\Alg1.exe
+C:\Users\Sven\Documents\GitHub\Design-Patterns\Alg1\Alg1\bin\Debug\Alg1.pdb
+C:\Users\Sven\Documents\GitHub\Design-Patterns\Alg1\Alg1\obj\Debug\Alg1.exe
+C:\Users\Sven\Documents\GitHub\Design-Patterns\Alg1\Alg1\obj\Debug\Alg1.pdb
