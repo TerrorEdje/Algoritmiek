@@ -1,0 +1,6 @@
+C:\Users\Sven\Documents\Algroritmiek\Week2\bin\Debug\Week2.exe.config
+C:\Users\Sven\Documents\Algroritmiek\Week2\bin\Debug\Week2.exe
+C:\Users\Sven\Documents\Algroritmiek\Week2\bin\Debug\Week2.pdb
+C:\Users\Sven\Documents\Algroritmiek\Week2\obj\Debug\Week2.csprojResolveAssemblyReference.cache
+C:\Users\Sven\Documents\Algroritmiek\Week2\obj\Debug\Week2.exe
+C:\Users\Sven\Documents\Algroritmiek\Week2\obj\Debug\Week2.pdb
