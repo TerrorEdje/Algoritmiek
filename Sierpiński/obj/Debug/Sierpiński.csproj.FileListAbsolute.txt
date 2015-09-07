@@ -1,0 +1,14 @@
+C:\Projects\Algoritmiek\Sierpiński\bin\Debug\Sierpiński.exe.config
+C:\Projects\Algoritmiek\Sierpiński\bin\Debug\Sierpiński.exe
+C:\Projects\Algoritmiek\Sierpiński\bin\Debug\Sierpiński.pdb
+C:\Projects\Algoritmiek\Sierpiński\obj\Debug\Sierpiński.csprojResolveAssemblyReference.cache
+C:\Projects\Algoritmiek\Sierpiński\obj\Debug\MainWindow.g.cs
+C:\Projects\Algoritmiek\Sierpiński\obj\Debug\App.g.cs
+C:\Projects\Algoritmiek\Sierpiński\obj\Debug\Sierpiński_MarkupCompile.cache
+C:\Projects\Algoritmiek\Sierpiński\obj\Debug\Sierpiński_MarkupCompile.lref
+C:\Projects\Algoritmiek\Sierpiński\obj\Debug\MainWindow.baml
+C:\Projects\Algoritmiek\Sierpiński\obj\Debug\Sierpiński.g.resources
+C:\Projects\Algoritmiek\Sierpiński\obj\Debug\Sierpiński.Properties.Resources.resources
+C:\Projects\Algoritmiek\Sierpiński\obj\Debug\Sierpiński.csproj.GenerateResource.Cache
+C:\Projects\Algoritmiek\Sierpiński\obj\Debug\Sierpiński.exe
+C:\Projects\Algoritmiek\Sierpiński\obj\Debug\Sierpiński.pdb

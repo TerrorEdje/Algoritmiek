@@ -3,3 +3,9 @@ C:\Users\Sven\Documents\GitHub\Design-Patterns\Alg1\Alg1\bin\Debug\Alg1.exe
 C:\Users\Sven\Documents\GitHub\Design-Patterns\Alg1\Alg1\bin\Debug\Alg1.pdb
 C:\Users\Sven\Documents\GitHub\Design-Patterns\Alg1\Alg1\obj\Debug\Alg1.exe
 C:\Users\Sven\Documents\GitHub\Design-Patterns\Alg1\Alg1\obj\Debug\Alg1.pdb
+C:\Projects\Algoritmiek\Alg1\bin\Debug\Alg1.exe.config
+C:\Projects\Algoritmiek\Alg1\bin\Debug\Alg1.exe
+C:\Projects\Algoritmiek\Alg1\bin\Debug\Alg1.pdb
+C:\Projects\Algoritmiek\Alg1\obj\Debug\Alg1.csprojResolveAssemblyReference.cache
+C:\Projects\Algoritmiek\Alg1\obj\Debug\Alg1.exe
+C:\Projects\Algoritmiek\Alg1\obj\Debug\Alg1.pdb
