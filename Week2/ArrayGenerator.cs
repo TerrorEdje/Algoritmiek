@@ -8,12 +8,13 @@ namespace Week2
 {
     class ArrayGenerator
     {
+        Random r = new Random();
 
         public int[] generateArrayRandom(int size)
         {
             int[] original = generateArray(size);
 
-            Random r = new Random();
+            
             for (int i = original.Length; i > 0; i--)
             {
                 int j = r.Next(i);
