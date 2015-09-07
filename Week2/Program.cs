@@ -9,18 +9,9 @@ namespace Week2
     class Program
     {
         static void Main(string[] args)
-        {
-            int length = 10000000;
-            ArrayGenerator myArrayGenerator = new ArrayGenerator();
-            BubbleSort bubblebubble = new BubbleSort();
-            int[] randomOrder = myArrayGenerator.generateArrayRandom(length);
-            Console.Write("RANDOM ");
-            bubblebubble.sort(randomOrder);
-            int[] order = myArrayGenerator.generateArray(length);
-            Console.Write("SORTED ");
-            bubblebubble.sort(order);
-            
-
+        {            
+            QuikSort quikSorter = new QuikSort();
+            quikSorter.sortTimes(1000);
             Console.ReadLine();
         }
     }
