@@ -13,7 +13,7 @@ namespace Week2
 
             
             QuikSort quikSorter = new QuikSort();
-            quikSorter.sortTimes(1000);
+            quikSorter.sortTimes(10000);
            
     
             

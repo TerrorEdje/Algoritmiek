@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace Week2
     {
         int equations = 0;
         int totalEquations;
+        int swaps;
 
         public int Partition(int[] numbers, int left, int right)
         {
@@ -24,8 +26,8 @@ namespace Week2
 
                 if (left < right)
                 {
+                    swaps++;
                     int temp = numbers[right];
-                    //Console.WriteLine("Swapped " + numbers[left]+" "+temp);
                     numbers[right] = numbers[left];
                     numbers[left] = temp;
                 }
@@ -63,16 +65,22 @@ namespace Week2
 
         public void sortTimes(int times)
         {
+            Stopwatch stopw = new Stopwatch();
             ArrayGenerator myArrayGenerator = new ArrayGenerator();
             totalEquations = 0;
-
+            stopw.Restart();
             for (int i = 0; i < times; i++)
             {
-                int[] randomOrder = myArrayGenerator.generateArrayRandom(10000);
-                startSort(randomOrder, 200, 400);
+                int[] randomOrder = myArrayGenerator.generateArray(10000);
+                startSort(randomOrder, 1, 1000);
                 
             }
-            Console.WriteLine("Finished average equations: "+(float)(+totalEquations/ times));
+            
+            double averageTimes = (float)totalEquations / times;
+            Console.WriteLine("Finished average equations: " + averageTimes);
+            Console.WriteLine("Swaps: " + (float)swaps/times);
+            
+            Console.Out.WriteLine("Time " + (float)stopw.ElapsedMilliseconds/times);
         }
     }
 }
