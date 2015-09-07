@@ -9,17 +9,11 @@ namespace Week2
     class Program
     {
         static void Main(string[] args)
-        {
-
-            
+        {            
             QuikSort quikSorter = new QuikSort();
-            quikSorter.sortTimes(10000);
-           
-    
-            
-           
 
-            Console.ReadLine();
+            quikSorter.sortTimes(10000);
+
         }
     }
 }
