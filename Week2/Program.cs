@@ -10,13 +10,16 @@ namespace Week2
     {
         static void Main(string[] args)
         {
-
+            int length = 10000000;
             ArrayGenerator myArrayGenerator = new ArrayGenerator();
-            int[] randomOrder = myArrayGenerator.generateArrayRandom(10000);
-            for(int i = 0; i<randomOrder.Length; i ++){
-                Console.WriteLine(randomOrder[i]);
-            }
-
+            BubbleSort bubblebubble = new BubbleSort();
+            int[] randomOrder = myArrayGenerator.generateArrayRandom(length);
+            Console.Write("RANDOM ");
+            bubblebubble.sort(randomOrder);
+            int[] order = myArrayGenerator.generateArray(length);
+            Console.Write("SORTED ");
+            bubblebubble.sort(order);
+            
 
             Console.ReadLine();
         }
