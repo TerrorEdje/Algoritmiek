@@ -9,3 +9,8 @@ C:\Projects\Algoritmiek\Alg1\bin\Debug\Alg1.pdb
 C:\Projects\Algoritmiek\Alg1\obj\Debug\Alg1.csprojResolveAssemblyReference.cache
 C:\Projects\Algoritmiek\Alg1\obj\Debug\Alg1.exe
 C:\Projects\Algoritmiek\Alg1\obj\Debug\Alg1.pdb
+C:\Users\Sven\Documents\Algroritmiek\Alg1\bin\Debug\Alg1.exe.config
+C:\Users\Sven\Documents\Algroritmiek\Alg1\obj\Debug\Alg1.exe
+C:\Users\Sven\Documents\Algroritmiek\Alg1\obj\Debug\Alg1.pdb
+C:\Users\Sven\Documents\Algroritmiek\Alg1\bin\Debug\Alg1.exe
+C:\Users\Sven\Documents\Algroritmiek\Alg1\bin\Debug\Alg1.pdb

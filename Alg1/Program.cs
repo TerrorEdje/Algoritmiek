@@ -29,15 +29,17 @@ namespace Alg1
             Fibonacci fib = new Fibonacci();
 
             stopw.Restart();
+            Console.Out.WriteLine("Total " + fib.calcLoop(40));
+            Console.Out.WriteLine("Time " + stopw.ElapsedMilliseconds);
+            Console.ReadLine();
+
+            stopw.Restart();
             Console.Out.WriteLine("Total "+ fib.calcRecursive(40) );
             Console.Out.WriteLine("Time " + stopw.ElapsedMilliseconds);
             Console.ReadLine();
 
 
-            stopw.Restart();
-            Console.Out.WriteLine("Total " + fib.calcLoop(40));
-            Console.Out.WriteLine("Time " + stopw.ElapsedMilliseconds);            
-            Console.ReadLine();
+            
         }
 
 

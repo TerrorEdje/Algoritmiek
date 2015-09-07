@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="650" Width="900">
     <StackPanel Orientation="Horizontal">
-        <Canvas HorizontalAlignment="Left" Name="MainCanvas" Height="600" Width="600"/>
+        <Canvas HorizontalAlignment="Left" Name="MainCanvas" Height="600" Width="600" Background="Black"/>
         <StackPanel Orientation="Vertical">
-            <TextBox x:Name="txtNum" x:FieldModifier="private" Width="50" Text="0" TextChanged="txtNum_TextChanged" />
+            <TextBox x:Name="txtNum" x:FieldModifier="private" Width="50" TextChanged="txtNum_TextChanged" />
+            
             <Button x:Name="cmdUp" x:FieldModifier="private" Content="˄" Width="20" Click="cmdUp_Click" />
             <Button x:Name="cmdDown" x:FieldModifier="private" Content="˅" Width="20" Click="cmdDown_Click" />
         </StackPanel>

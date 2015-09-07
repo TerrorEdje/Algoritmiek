@@ -20,7 +20,7 @@ namespace Sierpiński
     /// </summary>
     public partial class MainWindow : Window
     {
-        private int _numValue = 0;
+        private int _numValue = 5;
 
         public MainWindow()
         {
@@ -34,6 +34,14 @@ namespace Sierpiński
             
             if (level >= _numValue)
             {
+                Rectangle smallsquare = new Rectangle();
+                smallsquare.Fill = new SolidColorBrush(Colors.White);
+                smallsquare.Stroke = new SolidColorBrush(Colors.White);
+                smallsquare.Width = breedte;
+                smallsquare.Height = hoogte;
+                Canvas.SetTop(smallsquare, yOL);
+                Canvas.SetLeft(smallsquare, xOL);
+                MainCanvas.Children.Add(smallsquare);        
                 return;
             }
             level++;
@@ -41,26 +49,12 @@ namespace Sierpiński
             {
                 int b = breedte / 3;
                 int h = hoogte / 3;
-                Rectangle rect = new Rectangle();
-                rect.Fill = new SolidColorBrush(Colors.White);
-                rect.Width = b;
-                rect.Height = h;
-                Canvas.SetTop(rect, yOL + h);
-                Canvas.SetLeft(rect, xOL + b);
-                MainCanvas.Children.Add(rect);
                 for (int k = 0; k < 9; k++)
                 {
                     if (k != 4)
                     {
                         int i = k / 3;
-                        int j = k % 3;
-                        Rectangle smallsquare = new Rectangle();
-                        smallsquare.Fill = new SolidColorBrush(Colors.Black);
-                        smallsquare.Width = b;
-                        smallsquare.Height = h;
-                        Canvas.SetTop(smallsquare, yOL + j * h);
-                        Canvas.SetLeft(smallsquare, xOL + i * b);
-                        MainCanvas.Children.Add(smallsquare);                    
+                        int j = k % 3;                                    
                         DrawSierpinskiCarpet(xOL + i * b, yOL + j * h, b, h,level); // Recursie
                     }
                 }
