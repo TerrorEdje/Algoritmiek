@@ -26,11 +26,17 @@ namespace Sierpiński
         {
             InitializeComponent();
             txtNum.Text = _numValue.ToString();
-            DrawSierpinskiCarpet(0, 0, (int)MainCanvas.Height, (int)MainCanvas.Width);
+            DrawSierpinskiCarpet(0, 0, (int)MainCanvas.Height, (int)MainCanvas.Width,0);
         }
 
-        public void DrawSierpinskiCarpet(int xOL, int yOL, int breedte, int hoogte)
+        public void DrawSierpinskiCarpet(int xOL, int yOL, int breedte, int hoogte, int level)
         {
+            
+            if (level >= _numValue)
+            {
+                return;
+            }
+            level++;
             if (breedte > 2 && hoogte > 2)
             {
                 int b = breedte / 3;
@@ -44,18 +50,18 @@ namespace Sierpiński
                 MainCanvas.Children.Add(rect);
                 for (int k = 0; k < 9; k++)
                 {
-                    int i = k / 3;
-                    int j = k % 3;
-                    Rectangle smallsquare = new Rectangle();
-                    smallsquare.Fill = new SolidColorBrush(Colors.Black);
-                    smallsquare.Width = b;
-                    smallsquare.Height = h;
-                    Canvas.SetTop(smallsquare, yOL + h);
-                    Canvas.SetLeft(smallsquare, xOL + b);
-                    MainCanvas.Children.Add(smallsquare);
                     if (k != 4)
-                    {                        
-                        DrawSierpinskiCarpet(xOL + i * b, yOL + j * h, b, h); // Recursie
+                    {
+                        int i = k / 3;
+                        int j = k % 3;
+                        Rectangle smallsquare = new Rectangle();
+                        smallsquare.Fill = new SolidColorBrush(Colors.Black);
+                        smallsquare.Width = b;
+                        smallsquare.Height = h;
+                        Canvas.SetTop(smallsquare, yOL + j * h);
+                        Canvas.SetLeft(smallsquare, xOL + i * b);
+                        MainCanvas.Children.Add(smallsquare);                    
+                        DrawSierpinskiCarpet(xOL + i * b, yOL + j * h, b, h,level); // Recursie
                     }
                 }
             }
@@ -64,17 +70,17 @@ namespace Sierpiński
         public void UpdateCarpet()
         {
             MainCanvas.Children.Clear();
-            //DrawSierpinskiCarpet(0, 0, (int)MainCanvas.Height, (int)MainCanvas.Width);
+            DrawSierpinskiCarpet(0, 0, (int)MainCanvas.Height, (int)MainCanvas.Width,0);
         }
 
         public int NumValue
         {
             get { return _numValue; }
             set
-            {
-                UpdateCarpet();
+            {                
                 _numValue = value;
                 txtNum.Text = value.ToString();
+                UpdateCarpet();
             }
         }
 
