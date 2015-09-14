@@ -12,12 +12,12 @@ namespace Week2
         {
             int times = 100;
             Console.WriteLine(times);
-            QuikSort quikSorter = new QuikSort();
-            quikSorter.sortTimes(times);
 
-            BubbleSort bubbleSorter = new BubbleSort();
+            //QuikSort quikSorter = new QuikSort();
+            //quikSorter.sortTimes(times);
+
+            MergeSort bubbleSorter = new MergeSort();
             bubbleSorter.sortTimes(times);
-            quikSorter.sortTimes(100);
 
             Console.ReadLine();
 

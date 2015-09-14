@@ -11,7 +11,7 @@ namespace Week2
     {
         int equations = 0;
         int totalEquations;
-        int swaps;
+        long swaps;
 
         public void sort(int[] arr)
         {
@@ -20,6 +20,7 @@ namespace Week2
             stopw.Restart();
             for (int write = 0; write < arr.Length; write++)
             {
+                bool swapped = false;
                 for (int sort = 0; sort < arr.Length - 1; sort++)
                 {
                     equations++;
@@ -28,9 +29,12 @@ namespace Week2
                         temp = arr[sort + 1];
                         arr[sort + 1] = arr[sort];
                         arr[sort] = temp;
+                        swapped = true;
                         swaps++;
                     }
                 }
+                if (!swapped)
+                    break;
             }
         }
 
@@ -50,7 +54,7 @@ namespace Week2
             stopw.Restart();
             for (int i = 0; i < times; i++)
             {
-                int[] randomOrder = myArrayGenerator.generateArray(10000);
+                int[] randomOrder = myArrayGenerator.generateArrayRandom(10000);
                 startSort(randomOrder);
                 Console.WriteLine(i);
 
@@ -58,7 +62,7 @@ namespace Week2
 
             double averageTimes = (float)totalEquations / times;
             Console.WriteLine("Finished average equations: " + averageTimes);
-            Console.WriteLine("Swaps: " + (float)swaps / times);
+            Console.WriteLine("Swaps: " + (long)swaps / times);
 
             Console.Out.WriteLine("Time " + (float)stopw.ElapsedMilliseconds / times);
         }
