@@ -4,18 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Week2
+namespace BinaryTree
 {
     class Program
     {
         static void Main(string[] args)
-        {            
-            QuikSort quikSorter = new QuikSort();
-
-            quikSorter.sortTimes(100);
-
-            Console.ReadLine();
-
+        {
         }
     }
 }
