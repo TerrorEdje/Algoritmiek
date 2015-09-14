@@ -17,6 +17,7 @@ namespace Week2
 
             BubbleSort bubbleSorter = new BubbleSort();
             bubbleSorter.sortTimes(times);
+            quikSorter.sortTimes(100);
 
             Console.ReadLine();
 

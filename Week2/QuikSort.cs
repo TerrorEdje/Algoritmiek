@@ -40,7 +40,6 @@ namespace Week2
 
         public void sort(int[] arr, int left, int right)
         {
-            // For Recusrion
             if (left < right)
             {
                 equations++;
@@ -72,7 +71,7 @@ namespace Week2
             for (int i = 0; i < times; i++)
             {
                 int[] randomOrder = myArrayGenerator.generateArray(10000);
-                startSort(randomOrder, 1, 1000);
+                startSort(randomOrder, 0, randomOrder.Length -1);
                 
             }
             
