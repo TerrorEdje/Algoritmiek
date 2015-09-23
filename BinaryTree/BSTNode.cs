@@ -18,6 +18,7 @@ namespace BinaryTree
             this.number = number;
         }
 
+        //Checks if parameter exists in the tree.
         public bool exists(int number)
         {
             if (this.number == number)
@@ -25,14 +26,108 @@ namespace BinaryTree
                 return true;
             }
             if (left != null)
-            if (left.exists(number))
             {
-                return true;
+                if (left.exists(number))
+                {
+                    return true;
+                }
             }
-            if (right.exists(number))
+            if (right != null)
             {
-                return true;
+                if (right.exists(number))
+                {
+                    return true;
+                }
             }
+            return false;
+        }
+
+        public int min()
+        {
+            int lowest = number;
+            if (left != null)
+            {
+                lowest = left.min();
+            }
+            return lowest;
+        }
+
+        public int max()
+        {
+            int highest = number;
+            if (right != null)
+            {
+                highest = right.max();
+            }
+            return highest;
+        }
+
+        public int depth(BSTNode aNode)
+        {
+            if(aNode == null)
+                return 0;
+
+            int lefth = depth(aNode.left);
+            int righth = depth(aNode.right);
+
+            if (lefth > righth)
+                return lefth + 1;
+            else
+                return righth + 1;
+        }
+
+        public int count(int amount)
+        {
+            amount++;
+            if (left != null)
+            {
+                amount = left.count(amount);
+            }
+            if (right != null)
+            {
+                amount = right.count(amount);
+            }
+            return amount;
+        }
+
+        public void print()
+        {
+            if (left != null)
+            {
+                left.print();
+            }
+            Console.Write(number + "-");
+            if (right != null)
+            {
+                right.print();
+            }
+        }
+
+        public void printInRange(int min, int max)
+        {
+            if (min < number)
+            {
+                if (left != null)
+                {
+                    left.printInRange(min,max);
+                }
+            }
+            if (min < number && max > number)
+            {
+                Console.Write(number + "-");
+            }
+            if (max > number)
+            {
+                if (right != null)
+                {
+                    right.printInRange(min,max);
+                }
+            }
+        }
+
+        public void delete(int number)
+        {
+
         }
 
         /**

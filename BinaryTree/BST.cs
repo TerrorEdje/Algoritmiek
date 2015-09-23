@@ -38,7 +38,7 @@ namespace BinaryTree
          */
         public bool exists(int number)
         {
-            
+            return root.exists(number);
         }
 
         /**
@@ -46,7 +46,7 @@ namespace BinaryTree
          */
         public int min()
         {
-            throw new Exception("Not implemented, yet");
+            return root.min();
         }
 
         /**
@@ -54,7 +54,7 @@ namespace BinaryTree
          */
         public int max()
         {
-            throw new Exception("Not implemented, yet");
+            return root.max();
         }
 
         /**
@@ -64,7 +64,7 @@ namespace BinaryTree
          */
         public int depth()
         {
-            throw new Exception("Not implemented, yet");
+            return root.depth(root);
         }
 
         /**
@@ -73,7 +73,7 @@ namespace BinaryTree
          */
         public int count()
         {
-            throw new Exception("Not implemented, yet");
+            return root.count(0);
         }
 
         /**
@@ -81,7 +81,7 @@ namespace BinaryTree
          */
         public void print()
         {
-            throw new Exception("Not implemented, yet");
+            root.print();
         }
 
         /**
@@ -89,7 +89,7 @@ namespace BinaryTree
          */
         public void printInRange(int min, int max)
         {
-            throw new Exception("Not implemented, yet");
+            root.printInRange(min,max);
         }
 
         /**
@@ -97,42 +97,7 @@ namespace BinaryTree
          */
         public void delete(int number)
         {
-            throw new Exception("Not implemented, yet");
+            root.delete(number);
         }
-
-        /*public static void main(String args[]) {
-            BST tree = new BST();
-            tree.insert(50);
-            tree.insert(2);
-            tree.insert(7);
-            tree.insert(94);
-            tree.insert(24);
-            tree.insert(24);
-            tree.insert(71);
-            tree.insert(30);
-            tree.insert(49);
-            System.out.println("Count: " + tree.count()); // Should be 9
-            System.out.println("Min: " + tree.min()); // Should be 2
-            System.out.println("Max: " + tree.max()); // Should be 94
-            System.out.println("Depth: " + tree.depth()); // Should be 7
-            tree.print(); // Prints the values in order
-
-            tree.delete(49); // test for value not in tree
-            tree.delete(51); // test for value not in tree
-            tree.delete(50);
-            tree.delete(2);
-            tree.delete(7);
-            tree.delete(94);
-            tree.delete(24);
-            tree.delete(24);
-            tree.delete(71);
-            tree.delete(30);
-            tree.delete(49);
-            System.out.println("Count: " + tree.count()); // Should be 0
-            System.out.println("Min: " + tree.min()); // Should be -1
-            System.out.println("Max: " + tree.max()); // Should be -1
-            System.out.println("Depth: " + tree.depth()); // Should be 0
-            tree.print(); // Prints the values in order
-        }*/
     }
 }
