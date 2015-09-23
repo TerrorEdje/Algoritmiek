@@ -58,12 +58,12 @@ namespace Week2
         {
             equations =0;
             sort(arr, left, right);
-            Console.WriteLine("Finished after : "+equations);
             totalEquations += equations;
         }
 
         public void sortTimes(int times)
         {
+            Console.WriteLine("QUICKSORT");
             Stopwatch stopw = new Stopwatch();
             ArrayGenerator myArrayGenerator = new ArrayGenerator();
             totalEquations = 0;
