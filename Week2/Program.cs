@@ -10,9 +10,9 @@ namespace Week2
     {
         static void Main(string[] args)
         {            
-            QuikSort quikSorter = new QuikSort();
+            QuikSort3 quikSorter = new QuikSort3();
 
-            quikSorter.sortTimes(100);
+            quikSorter.sortTimes(1);
 
             Console.ReadLine();
 
