@@ -26,6 +26,9 @@ namespace BinaryTree
             //Console.WriteLine("Depth: " + tree.depth()); // Should be 7
             tree.prettyprint(); // Prints the values in order
             Console.WriteLine();
+            tree.delete(50);
+            tree.prettyprint(); // Prints the values in order
+            Console.WriteLine();
             tree.printInRange(5,80);
             Console.ReadLine();
 

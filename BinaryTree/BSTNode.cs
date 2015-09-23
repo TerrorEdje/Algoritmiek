@@ -105,6 +105,7 @@ namespace BinaryTree
 
         public void printInRange(int min, int max)
         {
+          
             if (min < number)
             {
                 if (left != null)
@@ -125,9 +126,40 @@ namespace BinaryTree
             }
         }
 
-        public void delete(int number)
+        public BSTNode delete(int value)
         {
+            if (value < number)
+            {
+                if (left != null)
+                {
+                    left = left.delete(value);
+                }
+                return this;
+            }
+            if (value > number)
+            {
+                if (right !=null)
+                {
+                    right = right.delete(value);
+                }
+                return this;
+            }
+            if (left == null && right == null)
+            {
+                return null;
+            }
+            if(left == null)
+            {
+                return right;
+            }
+            if (right == null)
+            {
+                return left;
+            }
 
+            this.number = left.max();
+            left.delete(this.number);
+            return this;
         }
 
         /**

@@ -97,7 +97,12 @@ namespace BinaryTree
          */
         public void delete(int number)
         {
-            root.delete(number);
+            if (root == null)
+            {
+                return;
+            }
+            root = root.delete(number);
+            
         }
     }
 }

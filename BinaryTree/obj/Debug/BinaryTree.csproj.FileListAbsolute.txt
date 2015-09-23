@@ -4,3 +4,8 @@ C:\Projects\Algoritmiek\BinaryTree\bin\Debug\BinaryTree.pdb
 C:\Projects\Algoritmiek\BinaryTree\obj\Debug\BinaryTree.csprojResolveAssemblyReference.cache
 C:\Projects\Algoritmiek\BinaryTree\obj\Debug\BinaryTree.exe
 C:\Projects\Algoritmiek\BinaryTree\obj\Debug\BinaryTree.pdb
+C:\Users\Sven\Documents\Algroritmiek\BinaryTree\bin\Debug\BinaryTree.exe.config
+C:\Users\Sven\Documents\Algroritmiek\BinaryTree\bin\Debug\BinaryTree.exe
+C:\Users\Sven\Documents\Algroritmiek\BinaryTree\bin\Debug\BinaryTree.pdb
+C:\Users\Sven\Documents\Algroritmiek\BinaryTree\obj\Debug\BinaryTree.exe
+C:\Users\Sven\Documents\Algroritmiek\BinaryTree\obj\Debug\BinaryTree.pdb
