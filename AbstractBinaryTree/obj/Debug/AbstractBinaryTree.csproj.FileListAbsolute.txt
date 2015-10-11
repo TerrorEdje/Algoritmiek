@@ -1,0 +1,6 @@
+C:\Projects\Algoritmiek\AbstractBinaryTree\bin\Debug\AbstractBinaryTree.exe.config
+C:\Projects\Algoritmiek\AbstractBinaryTree\obj\Debug\AbstractBinaryTree.csprojResolveAssemblyReference.cache
+C:\Projects\Algoritmiek\AbstractBinaryTree\bin\Debug\AbstractBinaryTree.exe
+C:\Projects\Algoritmiek\AbstractBinaryTree\bin\Debug\AbstractBinaryTree.pdb
+C:\Projects\Algoritmiek\AbstractBinaryTree\obj\Debug\AbstractBinaryTree.exe
+C:\Projects\Algoritmiek\AbstractBinaryTree\obj\Debug\AbstractBinaryTree.pdb

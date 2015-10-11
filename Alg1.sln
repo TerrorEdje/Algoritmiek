@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alg1", "Alg1\Alg1.csproj", "{6E70B363-3C5F-4055-98CA-0CF9FD95DCCF}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week2", "Week2\Week2.csproj", "{BF7C91FF-1680-431B-B241-2FBF762959BC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTree", "BinaryTree\BinaryTree.csproj", "{4E1E34AB-31A4-4527-BEB8-40F6D8DC52FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractBinaryTree", "AbstractBinaryTree\AbstractBinaryTree.csproj", "{3124C8E0-62E7-471A-84BC-A2246932376E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{4E1E34AB-31A4-4527-BEB8-40F6D8DC52FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E1E34AB-31A4-4527-BEB8-40F6D8DC52FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E1E34AB-31A4-4527-BEB8-40F6D8DC52FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3124C8E0-62E7-471A-84BC-A2246932376E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3124C8E0-62E7-471A-84BC-A2246932376E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3124C8E0-62E7-471A-84BC-A2246932376E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3124C8E0-62E7-471A-84BC-A2246932376E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
