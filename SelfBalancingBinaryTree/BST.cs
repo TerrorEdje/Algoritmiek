@@ -8,7 +8,7 @@ namespace SelfBalancingBinaryTree
 {
     public class BST
     {
-        private BSTNode root;
+        public BSTNode root;
 
         public void prettyprint()
         {

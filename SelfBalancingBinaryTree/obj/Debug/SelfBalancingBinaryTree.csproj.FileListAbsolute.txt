@@ -3,3 +3,4 @@ C:\Projects\Algoritmiek\SelfBalancingBinaryTree\bin\Debug\SelfBalancingBinaryTre
 C:\Projects\Algoritmiek\SelfBalancingBinaryTree\bin\Debug\SelfBalancingBinaryTree.pdb
 C:\Projects\Algoritmiek\SelfBalancingBinaryTree\obj\Debug\SelfBalancingBinaryTree.exe
 C:\Projects\Algoritmiek\SelfBalancingBinaryTree\obj\Debug\SelfBalancingBinaryTree.pdb
+C:\Projects\Algoritmiek\SelfBalancingBinaryTree\obj\Debug\SelfBalancingBinaryTree.csprojResolveAssemblyReference.cache
