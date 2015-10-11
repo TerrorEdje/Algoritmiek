@@ -1,0 +1,5 @@
+C:\Projects\Algoritmiek\SelfBalancingBinaryTree\bin\Debug\SelfBalancingBinaryTree.exe.config
+C:\Projects\Algoritmiek\SelfBalancingBinaryTree\bin\Debug\SelfBalancingBinaryTree.exe
+C:\Projects\Algoritmiek\SelfBalancingBinaryTree\bin\Debug\SelfBalancingBinaryTree.pdb
+C:\Projects\Algoritmiek\SelfBalancingBinaryTree\obj\Debug\SelfBalancingBinaryTree.exe
+C:\Projects\Algoritmiek\SelfBalancingBinaryTree\obj\Debug\SelfBalancingBinaryTree.pdb
