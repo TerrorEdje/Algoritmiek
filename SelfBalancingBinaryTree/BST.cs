@@ -33,6 +33,18 @@ namespace SelfBalancingBinaryTree
             }
         }
 
+        public void insertAVL(int number)
+        {
+            if (root == null)
+            {
+                root = new BSTNode(number);
+            }
+            else
+            {
+                root = root.insertAVL(number);
+            }
+        }
+
         /**
          * Returns true if the number is present as a node in the tree
          */

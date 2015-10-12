@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week2", "Week2\Week2.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTree", "BinaryTree\BinaryTree.csproj", "{4E1E34AB-31A4-4527-BEB8-40F6D8DC52FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractBinaryTree", "AbstractBinaryTree\AbstractBinaryTree.csproj", "{3124C8E0-62E7-471A-84BC-A2246932376E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractSyntaxTree", "AbstractBinaryTree\AbstractSyntaxTree.csproj", "{3124C8E0-62E7-471A-84BC-A2246932376E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfBalancingBinaryTree", "SelfBalancingBinaryTree\SelfBalancingBinaryTree.csproj", "{E0C83036-683B-403E-8528-D6222405388D}"
 EndProject

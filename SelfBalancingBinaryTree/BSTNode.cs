@@ -20,6 +20,10 @@ namespace SelfBalancingBinaryTree
 
         public BSTNode rotateLeft()
         {
+            if (right == null)
+            {
+                return this;
+            }
             BSTNode rightNode = right;
             right = rightNode.left;
             rightNode.left = this;
@@ -28,6 +32,10 @@ namespace SelfBalancingBinaryTree
 
         public BSTNode rotateRight()
         {
+            if (left == null)
+            {
+                return this;
+            }
             BSTNode leftNode = left;
             left = leftNode.right;
             leftNode.right = this;
@@ -38,16 +46,25 @@ namespace SelfBalancingBinaryTree
         {
             if (Math.Abs(depth(left) - depth(right)) <= 1)
             {
-                if (left.isAVLBalanced())
-                {
-                    return left.isAVLBalanced();
-                }
-                if (right.isAVLBalanced())
-                {
-                    return right.isAVLBalanced();
-                }
+                int count = 0;
+                if (left != null)
+                    if (left.isAVLBalanced())
+                    {
+                        count++;
+                    }
+                if (right != null)
+                    if (right.isAVLBalanced())
+                    {
+                        count++;
+                    }
+                if (count == 2)
+                    return true;            
             }
-            return false;
+            else
+            {
+                return false;
+            }
+            return true;
         }
 
         public BSTNode insertAVL(int number)
@@ -58,11 +75,19 @@ namespace SelfBalancingBinaryTree
                 if (this.left == null)
                 {
                     this.left = new BSTNode(number);
-                    return this.left;
                 }
                 else
                 {
-                    return this.left.insertAVL(number);
+                    this.left = this.left.insertAVL(number);
+                }
+                if (!isAVLBalanced())
+                {
+                    Console.WriteLine("ROTATE " + this.number);
+                    if (depth(left) < depth(right))
+                    {
+                        left = this.left.rotateLeft();
+                    }
+                    return rotateRight();
                 }
             }
             else
@@ -70,14 +95,23 @@ namespace SelfBalancingBinaryTree
                 // Larger value, insert it in the right subtree
                 if (this.right == null)
                 {
-                    this.right = new BSTNode(number);
-                    return this.right;
+                    right = new BSTNode(number);
                 }
                 else
                 {
-                    return this.right.insertAVL(number);
+                    this.right = this.right.insertAVL(number);
+                }
+                if (!isAVLBalanced())
+                {
+                    Console.WriteLine("ROTATE " + this.number);
+                    if (depth(left) > depth(right))
+                    {
+                        this.right = this.right.rotateLeft();
+                    }
+                    return rotateLeft();
                 }
             }
+            return this;
         }
 
         /**
