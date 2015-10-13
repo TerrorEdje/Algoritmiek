@@ -11,10 +11,12 @@ namespace SelfBalancingBinaryTree
         static void Main(string[] args)
         {
             BST tree = new BST();
+            Random r = new Random();
             for (int i = 1; i <= 100; i++)
-            {
-                tree.insertAVL(i);
-            }            
+            {                
+                tree.insertAVL(r.Next(1000));
+            }
+            Console.WriteLine(tree.root.isAVLBalanced());
             tree.prettyprint();
             Console.ReadLine();
         }

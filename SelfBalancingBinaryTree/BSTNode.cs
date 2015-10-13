@@ -48,15 +48,27 @@ namespace SelfBalancingBinaryTree
             {
                 int count = 0;
                 if (left != null)
+                {
                     if (left.isAVLBalanced())
                     {
                         count++;
                     }
+                }
+                else
+                {
+                    count++;
+                }
                 if (right != null)
+                {
                     if (right.isAVLBalanced())
                     {
                         count++;
                     }
+                }
+                else
+                {
+                    count++;
+                }
                 if (count == 2)
                     return true;            
             }
@@ -82,8 +94,7 @@ namespace SelfBalancingBinaryTree
                 }
                 if (!isAVLBalanced())
                 {
-                    Console.WriteLine("ROTATE " + this.number);
-                    if (depth(left) < depth(right))
+                    if (depth(left.right) > depth(left.left))
                     {
                         left = this.left.rotateLeft();
                     }
@@ -103,10 +114,9 @@ namespace SelfBalancingBinaryTree
                 }
                 if (!isAVLBalanced())
                 {
-                    Console.WriteLine("ROTATE " + this.number);
-                    if (depth(left) > depth(right))
+                    if (depth(right.right) < depth(right.left))
                     {
-                        this.right = this.right.rotateLeft();
+                        right = this.right.rotateRight();
                     }
                     return rotateLeft();
                 }
