@@ -21,6 +21,7 @@
 		void printVisited();
 		void move(RoomDirection);
 		void showDescription();
+		void findBoms();
 		bool isFinished();
 		void moveUp();
 		void setFinished();
@@ -29,5 +30,6 @@
 		void printFightHelp();
 		void setInitialPosition();
 		void findEquipment(int);
+		int getTrapDamage();
 	};
 

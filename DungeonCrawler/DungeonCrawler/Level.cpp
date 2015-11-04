@@ -79,10 +79,16 @@ void Level::move(RoomDirection dir)
 {	
 	Room * temp = currentPosition;
 	currentPosition = currentPosition->moveTo(dir);	
+	int damage = currentPosition->getTrapDamage();
 	printLevel();
 	if (temp == currentPosition)
 	{
 		std::cout << "Not able to move in that direction" << std::endl;
+	}
+	if (damage > 0)
+	{
+		std::cout << "There were hidden traps in the last room Damage" << damage << std::endl;
+		
 	}
 		
 }
@@ -98,6 +104,16 @@ void Level::showDescription()
 bool Level::isFinished()
 {
 	return finished;
+}
+
+void Level::findBoms()
+{
+	currentPosition->findTraps();
+}
+
+int Level::getTrapDamage()
+{
+	return currentPosition->getTrapDamage();
 }
 
 void Level::pickItems()

@@ -62,6 +62,24 @@ void Room::setVisited()
 	visited = true;
 }
 
+void Room::findTraps()
+{
+	for (int i = 0; i < traps.size(); i++)
+	{
+		traps.at(i).setFound();
+	}
+}
+
+int Room::getTrapDamage()
+{
+	int returnVal = 0;
+	for (int i = 0; i < traps.size(); i++)
+	{
+		if (!traps.at(i).getFound())
+			returnVal += traps.at(i).getDamage();
+	}
+	return returnVal;
+}
 Room * Room::moveTo(RoomDirection dir)
 {
 	if (hasConnection(dir))
