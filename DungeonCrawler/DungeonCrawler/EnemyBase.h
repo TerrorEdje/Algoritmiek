@@ -15,6 +15,7 @@ public:
 	int getHealth();
 	bool attackMe(int);
 	bool isAlive();
+	int getXP();
 	std:: vector<Equipment> equipment;
 	EnemyBase();
 	~EnemyBase();

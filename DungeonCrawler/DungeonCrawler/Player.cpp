@@ -23,17 +23,41 @@ void Player::showStats()
 	std::cout << "Attack :" << getAttack() << std::endl;
 	std::cout << "Defence :" << getDefence() << std::endl;
 	std::cout << "Awareness :" << getAwarenes() << std::endl << std::endl;
-	std::cout << "Inventory :" << getAwarenes() << std::endl << std::endl;
+	std::cout << "Inventory :" <<  std::endl;
+	printInventory();
+	std::cout << std::endl;
+}
+
+void Player::printInventory()
+{
 	for (int i = 0; i < inventory.size(); i++)
 	{
 		std::cout << i << ": " << inventory.at(i).getName() << std::endl;
 	}
-	std::cout << std::endl;
+}
+Equipment* Player::getEquipment( int index)
+{
+	if( index > inventory.size() -1 )
+	{
+		std::cout << "This item is not in your inventory, does it even exist?" << std::endl;
+		return nullptr;
+	}
+	else
+	{
+		return &inventory.at( index );
+	}
 }
 
 void Player::addEquipment(Equipment nEquipment)
 {
-	inventory.push_back(nEquipment);
+	if( inventory.size() < 10 )
+	{
+		inventory.push_back( nEquipment );
+	}
+	else
+	{
+		std::cout << "Inventory is full, maybe you need a bigger bag (which is not possible in this game)" << std::endl;
+	}
 }
 
 int Player::getAttack()
@@ -59,7 +83,7 @@ void Player::addXP(int newXP)
 
 int Player::getMaxHealth()
 {
-	 return 100 + level * 10;
+	 return 100 + level * 30;
 }
 
 int Player::getHealth()
@@ -86,7 +110,7 @@ void Player::takeDamage(int dmg)
 
 void Player::rest()
 {
-	health += 10;
+	health += getMaxHealth() / 10;
 	if (health > getMaxHealth())
 	{
 		health = getMaxHealth();

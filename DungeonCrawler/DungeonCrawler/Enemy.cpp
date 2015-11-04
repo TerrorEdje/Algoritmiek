@@ -12,8 +12,9 @@ Enemy::Enemy(int lvl) : EnemyBase()
 	RandomGenerator rg = RandomGenerator();
 	name = EnemyName[rg.getRandom(0,5)];
 	state = EnemyState[rg.getRandom(0, 5)];
-	health = rg.getRandom(2, 6);
+	health = rg.getRandom(10, 20) * (lvl +1);
 	alive = true;
+	attackpoints = rg.getRandom( 2, 6 ) * (lvl + 1);
 }
 
 

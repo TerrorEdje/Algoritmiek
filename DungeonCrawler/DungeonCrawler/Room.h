@@ -14,6 +14,10 @@ const string  RoomContent[]{ "table", "closet", "bed", "harp" };
 const string  RoomDescription[]{ "dungeon", "kitchen", "bedroom", "bathroom" };
 const string  RoomAppearance[]{ "cleaned", "dirty", "scary", "funny" };
 const string  RoomLighting[]{ "fluorescenttube", "candle", "torch", "fireplace" };
+const string  RoomColor[]
+{
+	"blue", "red", "orange", "black"
+};
 
 class Room
 {
@@ -24,10 +28,11 @@ private:
 	string description;
 	string appearance;
 	string lighting;
+	string color;
 	bool visited;
 	bool visiting;
 	bool exit;
-	std::vector<Enemy> enemys;
+	std::vector<EnemyBase> enemys;
 	std::vector<Trap> traps;
 	std::vector<Equipment> equipment;
 
@@ -48,16 +53,16 @@ public:
 	bool hasConnection(RoomDirection);
 	bool hasTrap();
 	void removeConnection(RoomDirection);
-	void findTraps();
+	void findTraps(int);
 	void fight();
 	void showEquipment();
 	void findEquipment(int awareness);
 	bool checkEnemysAlive();
-	void setExit();
+	void setExit(int lvl);
 	bool isExit();
 	int getScore();
 	int getTrapDamage();
-	std::vector<Enemy*> getEnemysAlive();
+	std::vector<EnemyBase*> getEnemysAlive();
 	Room * moveTo(RoomDirection);
 	Room* getRoom(RoomDirection);
 	string getDescription();

@@ -4,69 +4,69 @@
 #include <iostream>
 #include <random>
 #include "RandomGenerator.h"
-	Level::Level(int id, Player * pl)
-	{
-		p1 = pl;
-		finished = false;
-		ID = id;
+Level::Level(int id, Player * pl)
+{
+	p1 = pl;
+	finished = false;
+	ID = id;
 
-		RandomGenerator rg = RandomGenerator();
-		levelWidth = rg.getRandom(4,7);
-		levelHeight = rg.getRandom(4, 7);;
+	RandomGenerator rg = RandomGenerator();
+	levelWidth = rg.getRandom(4,7);
+	levelHeight = rg.getRandom(4, 7);;
 
 		
 
-		//Rooms inladen
-		for (int y = 0; y < levelHeight; y++)
+	//Rooms inladen
+	for (int y = 0; y < levelHeight; y++)
+	{
+		std::vector<Room> temp;
+		for (int x = 0; x < levelWidth; x++)
 		{
-			std::vector<Room> temp;
-			for (int x = 0; x < levelWidth; x++)
-			{
-				temp.push_back(Room());
-			}
-			rooms.push_back(temp);
+			temp.push_back(Room());
 		}
-
-		//Verbindingen instellen
-		for (int y = 0; y < levelHeight; y++)
-		{
-
-			string bottomConnection;
-			for (int x = 0; x < levelWidth; x++)
-			{
-				Room *temp;
-				
-				temp = &rooms[y][x];
-
-				// Vijand toevoegen op basis van random getal, als level hoger wordt , kans groter
-				
-				if (rg.getRandom(0, 5) < (1 + ID))
-					temp->addEnemy(ID);
-					
-				//--
-
-				if (x < levelWidth - 1)
-				{					
-					edges.push_back(Edge(temp, &rooms[y][x + 1], RoomDirection::EAST));
-					temp->setRoom(RoomDirection::EAST, &rooms[y][x+1]);					
-				}
-				if (y < levelHeight - 1){
-					edges.push_back(Edge(temp, &rooms[y + 1][x], RoomDirection::SOUTH));
-					temp->setRoom(RoomDirection::SOUTH, &rooms[y + 1][x]);
-				}
-					
-			}
-		}
-
-		setInitialPosition();
-
-		Room *temp = &rooms[0][0];
-		temp->removeConnection(RoomDirection::NORTH);
-		temp = &rooms[3][3];
-		temp->removeConnection(RoomDirection::EAST);
-		temp = &rooms[1][1];
-		temp->removeConnection(RoomDirection::WEST);
+		rooms.push_back(temp);
 	}
+
+	//Verbindingen instellen
+	for (int y = 0; y < levelHeight; y++)
+	{
+
+		string bottomConnection;
+		for (int x = 0; x < levelWidth; x++)
+		{
+			Room *temp;
+				
+			temp = &rooms[y][x];
+
+			// Vijand toevoegen op basis van random getal, als level hoger wordt , kans groter
+				
+			if (rg.getRandom(0, 5) < (1 + ID))
+				temp->addEnemy(ID);
+					
+			//--
+
+			if (x < levelWidth - 1)
+			{					
+				edges.push_back(Edge(temp, &rooms[y][x + 1], RoomDirection::EAST));
+				temp->setRoom(RoomDirection::EAST, &rooms[y][x+1]);					
+			}
+			if (y < levelHeight - 1){
+				edges.push_back(Edge(temp, &rooms[y + 1][x], RoomDirection::SOUTH));
+				temp->setRoom(RoomDirection::SOUTH, &rooms[y + 1][x]);
+			}
+					
+		}
+	}
+
+	setInitialPosition();
+
+	Room *temp = &rooms[0][0];
+	temp->removeConnection(RoomDirection::NORTH);
+	temp = &rooms[3][3];
+	temp->removeConnection(RoomDirection::EAST);
+	temp = &rooms[1][1];
+	temp->removeConnection(RoomDirection::WEST);
+}
 
 
 Level::~Level()
@@ -78,27 +78,37 @@ Level::~Level()
 void Level::move(RoomDirection dir)
 {	
 	Room * temp = currentPosition;
-	currentPosition = currentPosition->moveTo(dir);	
 	int damage = currentPosition->getTrapDamage();
+	currentPosition = currentPosition->moveTo(dir);	
+	
+	
 	printLevel();
 	if (temp == currentPosition)
 	{
 		std::cout << "Not able to move in that direction" << std::endl;
 	}
-	if (damage > 0)
+	else
 	{
-		std::cout << "There were hidden traps in the last room Damage" << damage << std::endl;
-		
+		if (damage > 0)
+		{
+			std::cout << "There were hidden traps in the last room Damage " << damage << std::endl;
+			p1->takeDamage(damage);
+		}
 	}
+
 		
 }
 
 void Level::showDescription()
 {
 	printLevel();
+	findBombs();
 	std::cout << currentPosition->getDescription() << std::endl;
 	currentPosition->showEnemys();
+	currentPosition->findEquipment( p1->getAwarenes() );
 	currentPosition->showEquipment();
+	p1->addXP( 2 );
+	
 }
 
 bool Level::isFinished()
@@ -106,9 +116,10 @@ bool Level::isFinished()
 	return finished;
 }
 
-void Level::findBoms()
+void Level::findBombs()
 {
-	currentPosition->findTraps();
+	currentPosition->findTraps(p1->getAwarenes());
+	
 }
 
 int Level::getTrapDamage()
@@ -213,7 +224,7 @@ void Level::setInitialPosition()
 	currentPosition->setVisited();
 
 	Room *tempExit = &rooms[exitPosY][exitPosX];
-	tempExit->setExit();
+	tempExit->setExit(ID);
 
 }
 
@@ -226,10 +237,11 @@ void Level::fight()
 	}
 	else
 	{
-		std::vector<Enemy*> temp = currentPosition->getEnemysAlive();
+		RandomGenerator rg;
+		std::vector<EnemyBase*> temp = currentPosition->getEnemysAlive();
 		for (size_t i = 0; i < temp.size(); i++)
 		{
-			xp += 10;
+			xp += temp.at(i)->getXP();
 		}
 		
 		printFightHelp();
@@ -254,20 +266,81 @@ void Level::fight()
 			case 'r':
 				fighting = false;
 				break;
+			case 'i':
+			{
+				bool picked = false;
+				while( !picked )
+				{
+					char input[100];
+					cout << "Pick your item (q to close inventory) : " << endl;
+					p1->printInventory();
+					cin.getline( input, sizeof( input ) );
+					if( '0' <= input[0] && input[0] <= '9' )
+					{
+						Equipment * tempWep = p1->getEquipment( input[0] - 48 );
+						if( tempWep != nullptr )
+						{
+							for( size_t i = 0; i < temp.size(); i++ )
+							{
+								if( temp.at( i )->isAlive() )
+									temp.at( i )->attackMe( tempWep->getHitpoints() );
+							}	
+							picked = true;
+						}
+					
+
+						
+					}
+					else if (input[0] == 'q')
+					{
+						std::cout << "What? You don't want to pick something? Alright." << endl;
+						picked = true;
+					}
+					else
+					{
+						std::cout << "Insert a number from your inverntory." << endl;
+					}
+				}
+			}				
+				break;
 			default:
 				std::system("cls");
 				std::cout << "unknown key" << std::endl;
 				printFightHelp();
 				break;
-
-
 			}
+
 
 			if (!currentPosition->checkEnemysAlive())
 			{
 				fighting = false;
-				std::cout << "You killed all enemys!";
+				printLevel();
+				std::cout << "You killed all enemys, fight ended!" << endl;
 				p1->addXP(xp);
+			}
+			else
+			{
+				std::cout << "ENEMYS ATTACKING!!" << std::endl;
+				for( size_t i = 0; i < temp.size(); i++ )
+				{
+					if( temp.at( i )->isAlive() )
+					{
+						int rndmAttack = rg.getRandom( 0, 1000 );
+						if( rndmAttack > p1->getDefence() )
+						{
+							int dmg = temp.at( i )->attack();
+							std::cout << temp.at( i )->getDescription() << " did " << dmg << " damage." << std::endl;
+							p1->takeDamage( dmg );
+						}
+						else
+						{
+							std::cout << "Thanks to your great defence he missed" << std::endl;
+						}
+						
+						
+					}
+						
+				}
 			}
 		}
 	}
@@ -279,5 +352,6 @@ void Level::printFightHelp()
 	std::cout << "FIGHTING HELP" << std::endl << "_________________________________________" << std::endl;
 	std::cout << " A : Attack enemy." << std::endl;
 	std::cout << " R : Run away" << std::endl;
+	std::cout << " I : chose from inventory" << std::endl;
 	std::cout << "FIGHTING HELP" << std::endl << "_________________________________________" << std::endl;
 }

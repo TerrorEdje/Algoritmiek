@@ -12,16 +12,24 @@ EnemyBase::~EnemyBase()
 {
 }
 
-int attack()
+int EnemyBase::attack()
 {
-	return 0;
+	return attackpoints;
 }
 int EnemyBase::getHealth(){
 	return health;
 }
 std::string EnemyBase::getDescription()
 {
-	return state + " " + name;
+	std::string strAlive = " (Alive )";
+	if( !isAlive() )
+		strAlive = " (Dead) ";
+	return state + " " + name + strAlive;
+}
+
+int EnemyBase::getXP()
+{
+	return attackpoints / 2;
 }
 
 bool EnemyBase::attackMe(int dmg)

@@ -89,6 +89,11 @@ void Game::start(){
 			printHelp();
 			break;
 		}
+		if (!p1.isAlive())
+		{
+			system( "cls" );
+			cout << "You are dead sucker" << endl;
+		}
 	}
 }
 

@@ -22,5 +22,6 @@ public:
 	void setFound();
 	bool isFound();
 	int getAwarenes();
+	int getHitpoints();
 };
 

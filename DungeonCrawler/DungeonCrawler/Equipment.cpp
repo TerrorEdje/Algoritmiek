@@ -6,17 +6,21 @@
 Equipment::Equipment()
 {
 	RandomGenerator rg = RandomGenerator();
-	hitpoints = rg.getRandom(0, 17);
+	hitpoints = rg.getRandom(2, 17);
 	color  = EquipmentColor[rg.getRandom(0, 5)];
 	name = EquipmentName[rg.getRandom(0, 5)];
 	size = EquipmentSize[rg.getRandom(0, 5)];
 	minimumLevel = rg.getRandom(0, 100);
-	minimumLevel = 0;
 }
 
 
 Equipment::~Equipment()
 {
+}
+
+int Equipment::getHitpoints()
+{
+	return hitpoints;
 }
 
 std::string Equipment::getName()

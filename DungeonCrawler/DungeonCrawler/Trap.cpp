@@ -8,8 +8,13 @@ Trap::Trap()
 	RandomGenerator rg;
 	damage = rg.getRandom(0, 20);
 	description = TrapDescription[rg.getRandom(0, 5)];
+	minimalLvl = rg.getRandom( 0, 100 );
 }
 
+int Trap::getMinimalLevel()
+{
+	return minimalLvl;
+}
 
 int Trap::getDamage()
 {

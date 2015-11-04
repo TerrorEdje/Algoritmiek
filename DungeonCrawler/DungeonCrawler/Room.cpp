@@ -13,6 +13,7 @@ Room::Room()
 	description = RoomDescription[rg.getRandom(0, 3)];
 	appearance = RoomAppearance[rg.getRandom(0, 3)];
 	lighting = RoomLighting[rg.getRandom(0,3)];
+	color = RoomColor[rg.getRandom( 0, 3 )];
 	connected[RoomDirection::NORTH] =  nullptr;
 	connected[RoomDirection::EAST] = nullptr;
 	connected[RoomDirection::SOUTH] = nullptr;
@@ -64,11 +65,21 @@ void Room::setVisited()
 	visited = true;
 }
 
-void Room::findTraps()
+void Room::findTraps(int lvl)
 {
 	for (int i = 0; i < traps.size(); i++)
 	{
-		traps.at(i).setFound();
+		if( lvl > traps.at( i ).getMinimalLevel() )
+		{
+			traps.at( i ).setFound();
+			cout << "Trap found" << endl;
+		}
+		else
+		{
+
+			cout << "Level to low to find the trap " << traps.at( i ).getMinimalLevel() << "." << endl;
+		}
+			
 	}
 }
 
@@ -102,7 +113,7 @@ string Room::getDescription(){
 	string returnVal = "";
 	if (exit)
 		returnVal += "THIS IS THE EXIT!!  \n";
-	returnVal += "the " + appearance + " " + description + " has a very " + size + " size, there is a " + lighting + " above a " + content;
+	returnVal += "the " +color + " "+ appearance + " " + description + " has a very " + size + " size, there is a " + lighting + " above a " + content;
 	return returnVal;
 }
 
@@ -223,9 +234,9 @@ void Room::fight()
 	}
 }
 
-std::vector<Enemy*> Room::getEnemysAlive()
+std::vector<EnemyBase*> Room::getEnemysAlive()
 {
-	std::vector<Enemy*> temp;
+	std::vector<EnemyBase*> temp;
 	for (int i = 0; i < enemys.size(); i++)
 	{
 		if (enemys.at(i).isAlive())
@@ -254,9 +265,10 @@ bool Room::isExit()
 	return exit;
 }
 
-void Room::setExit()
+void Room::setExit(int lvl)
 {
 	exit = true;
+	enemys.push_back( Boss(lvl) );
 }
 
 int Room::getScore()
@@ -300,13 +312,13 @@ std::vector<Equipment> Room::pickItems(int awareness)
 
 void Room::showEquipment()
 {
-	std::cout << "Equipment found in this room." << std::endl;
+	std::cout << "Equipment that you did find in this room:" << std::endl;
 	for (int i = 0; i < equipment.size(); i++)
 	{
 		if (equipment.at(i).isFound())
 			std::cout << equipment.at(i).getName() << std::endl << std::endl;
 	}
-	std::cout << std::endl << "Equipment not found in this room." << std::endl;
+	std::cout << std::endl << "Equipment that is hidden from eyes:" << std::endl;
 	for (int i = 0; i < equipment.size(); i++)
 	{
 		if (!equipment.at(i).isFound())

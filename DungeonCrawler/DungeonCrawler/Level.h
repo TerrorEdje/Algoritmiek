@@ -21,7 +21,7 @@
 		void printVisited();
 		void move(RoomDirection);
 		void showDescription();
-		void findBoms();
+		void findBombs();
 		bool isFinished();
 		void moveUp();
 		void setFinished();

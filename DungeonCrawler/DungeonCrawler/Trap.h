@@ -5,9 +5,11 @@ class Trap
 {
 	bool found = false;
 	int damage;
+	int minimalLvl;
 	std::string description;
 public:
 	Trap();
+	int getMinimalLevel();
 	void setFound();
 	~Trap();
 	bool getFound();

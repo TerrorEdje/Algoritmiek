@@ -24,6 +24,8 @@ public:
 	int doAttack();
 	int getMaxHealth();
 	void takeDamage(int);
+	void printInventory();
+	Equipment* getEquipment( int );
 	void rest();
 	bool isAlive();
 };
