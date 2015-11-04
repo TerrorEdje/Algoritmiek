@@ -4,7 +4,9 @@
 #include "RandomGenerator.h"
 Player::Player(std::string pName)
 {
-	name = pName;
+	RandomGenerator rg;
+
+	name = playerName[rg.getRandom(0,5)];
 }
 
 
@@ -58,6 +60,11 @@ void Player::addEquipment(Equipment nEquipment)
 	{
 		std::cout << "Inventory is full, maybe you need a bigger bag (which is not possible in this game)" << std::endl;
 	}
+}
+
+std::string Player::getName()
+{
+	return name;
 }
 
 int Player::getAttack()

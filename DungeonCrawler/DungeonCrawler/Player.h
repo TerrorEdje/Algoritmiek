@@ -2,6 +2,10 @@
 #include <string>
 #include <vector>
 #include "Equipment.h"
+const std::string  playerName[]
+{
+	"Henk", "Rambo", "Lionell Mesi", "Bruce Lee", "Wesley snipes", "Steven Seagal"
+};
 class Player
 {
 public:
@@ -19,6 +23,7 @@ public:
 	int getExperience();
 	int getHealth();
 	int getDefence();
+	std::string getName();
 	int getLevel();
 	int getAwarenes();
 	int doAttack();

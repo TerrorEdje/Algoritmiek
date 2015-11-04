@@ -31,6 +31,11 @@ Game::~Game()
 
 void Game::start(){
 	bool running = true;
+	std::cout << p1.getName() << ", welcome game started." << std::endl;
+	cout << "Do you want to play a game? : " ;
+	char startme[100];
+	cin.getline( startme, sizeof( startme ) );
+	printHelp();
 	while (running){
 		if (checkForFinished())
 		{
@@ -108,8 +113,10 @@ void Game::printHelp(){
 	std::cout << " D : move east." << std::endl;
 	std::cout << " S : move south." << std::endl;
 	std::cout << " A : move west." << std::endl;
+	std::cout << " P : pick up item" << std::endl;
+	std::cout << " R : Rest." << std::endl;
 	std::cout << " U : move up." << std::endl;
-	std::cout << " I : Show inventory." << std::endl;
+	std::cout << " Z : Show stats." << std::endl;
 	std::cout << " p : Finish level." << std::endl;
 	std::cout << " H : help." << std::endl;
 	std::cout << " Q : quit." << std::endl;
