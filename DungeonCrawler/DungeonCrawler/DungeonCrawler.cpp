@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "Game.h"
 
+//#include "vld.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {

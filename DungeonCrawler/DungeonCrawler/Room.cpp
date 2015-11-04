@@ -21,6 +21,8 @@ Room::Room()
 	visiting = false;
 	exit = false;
 	equipment.push_back(Equipment());
+	if( rg.getRandom( 0, 100 ) < 20 )
+		traps.push_back(Trap());
 }
 
 
